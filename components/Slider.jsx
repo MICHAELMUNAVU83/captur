@@ -24,11 +24,7 @@ const Slider = ({ slides }) => {
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={
-              index === current
-                ? "opacity-[1] ease-in duration-1000"
-                : "opacity-0 "
-            }
+            className={index === current ? "opacity-[1]" : "opacity-0 "}
           >
             <FaArrowAltCircleLeft
               className="absolute top-[50%] left-[30px] text-white/70 cursor-pointer select-none  z-[2]"
