@@ -1,18 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 const NavBar = () => {
   const [nav, setNav] = useState(false);
+  const [color, setColor] = useState("transparent");
+  const [textColor, setTextColor] = useState("white");
+
+  useEffect(() => {
+    const changeBackground = () => {
+      if (window.scrollY >= 80) {
+        setColor("white");
+        setTextColor("black");
+      } else {
+        setColor("transparent");
+        setTextColor("white");
+      }
+    };
+    window.addEventListener("scroll", changeBackground);
+  }, []);
+
+ 
+
   const toggleNav = () => {
     setNav(!nav);
   };
   return (
-    <div className="fixed left-0 top-0 w-full z-10 ease-in duration-300">
+    <div
+      style={{ backgroundColor: `${color}` }}
+      className="fixed left-0 top-0 w-full z-10 ease-in duration-300"
+    >
       <div className="max-w-[1240px] m-auto flex justify-between items-center p-4 text-white">
         <Link href="/">
-          <h1 className="font-bold text-4xl ">Captur</h1>
+          <h1 style={{ color: `${textColor}` }} className="font-bold text-4xl ">
+            Captur
+          </h1>
         </Link>
-        <ul className="hidden sm:flex">
+        <ul style={{ color: `${textColor}` }} className="hidden sm:flex">
           <Link href="/">
             <li className="p-4">Home</li>
           </Link>
@@ -30,9 +53,17 @@ const NavBar = () => {
         {/*Mobile button /> */}
         <div className="sm:hidden block z-10">
           {nav ? (
-            <AiOutlineClose className="text-4xl" onClick={toggleNav} />
+            <AiOutlineClose
+              className="text-4xl"
+              onClick={toggleNav}
+              style={{ color: `${textColor}` }}
+            />
           ) : (
-            <AiOutlineMenu className="text-4xl" onClick={toggleNav} />
+            <AiOutlineMenu
+              className="text-4xl"
+              onClick={toggleNav}
+              style={{ color: `${textColor}` }}
+            />
           )}
         </div>
         {/*Mobile menu /> */}
