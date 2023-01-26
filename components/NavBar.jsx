@@ -42,7 +42,7 @@ const NavBar = () => {
           <Link href="/#gallery">
             <li className="p-4">Gallery</li>
           </Link>
-          <Link href="/portfolio">
+          <Link href="/work">
             <li className="p-4">Work</li>
           </Link>
           <Link href="/contact">
@@ -74,7 +74,7 @@ const NavBar = () => {
               : "sm:hidden absolute top-0 right-0 left-[-100%] bottom-0 flex justify-center items-center w-full h-screen bg-black/70 text-white duration-300 ease-in-out"
           }
         >
-          <ul>
+          <ul onClick={toggleNav}>
             <Link href="/" className="p-4 text-4xl hover:text-gray-500">
               <li>Home</li>
             </Link>
@@ -82,7 +82,7 @@ const NavBar = () => {
               <li>Gallery</li>
             </Link>
             <Link
-              href="/portfolio"
+              href="/work"
               className="p-4 text-4xl hover:text-gray-500"
             >
               <li>Work</li>
