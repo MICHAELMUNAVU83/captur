@@ -5,7 +5,7 @@ import Hero from "@/components/Hero";
 const contact = () => {
   return (
     <div>
-      <Hero heading={"Contact"} message={"This is the contact page"} />
+      <Hero heading={"Contact"} message={"Reach Out to me "} />
       <Contact />
     </div>
   );
